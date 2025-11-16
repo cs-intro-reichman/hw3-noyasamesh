@@ -60,7 +60,7 @@ public class LoanCalc {
 		        return g; 
 			}
 		    else 
-		      g = g + 0.001; 
+		      g = g + 0.1; 
 
 	    }
 		return g;
@@ -77,7 +77,7 @@ public class LoanCalc {
         rate = rate / 100 + 1;
         double g = (L + H) / 2;
 		iterationCounter = 0;
-		
+
         while (Math.abs(H - L) > epsilon) {
 		  iterationCounter++;
 	      double w = loan;
