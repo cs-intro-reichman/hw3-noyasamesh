@@ -48,7 +48,7 @@ public class LoanCalc {
 		double w = loan;
 		boolean isBigger = true;
 		iterationCounter = 0;
-		
+
 		while (isBigger) {
 			iterationCounter++;
 			w = loan;
@@ -77,6 +77,7 @@ public class LoanCalc {
         rate = rate / 100 + 1;
         double g = (L + H) / 2;
 		iterationCounter = 0;
+		
         while (Math.abs(H - L) > epsilon) {
 		  iterationCounter++;
 	      double w = loan;
