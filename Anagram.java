@@ -54,7 +54,7 @@ public class Anagram {
 
 			s2 = s2.substring(0, j) + s2.substring(j+1);
 
-			}
+		}
 		
 		return true;
 	}
