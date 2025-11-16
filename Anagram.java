@@ -67,9 +67,6 @@ public class Anagram {
 		String newStr="";
 		for (int i=0; i< str.length();i++) {
 			char c = str.charAt(i);
-			if (c==32){
-				newStr+= c;
-			}
 			if ((c>96) && (c<123)) {
 				newStr += c;
 			}
