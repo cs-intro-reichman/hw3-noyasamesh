@@ -48,6 +48,7 @@ public class LoanCalc {
 		double w = loan;
 		boolean isBigger = true;
 		iterationCounter = 0;
+		
 		while (isBigger) {
 			iterationCounter++;
 			w = loan;
@@ -60,7 +61,7 @@ public class LoanCalc {
 			}
 		    else 
 		      g = g + 0.001; 
-        
+
 	    }
 		return g;
     }
