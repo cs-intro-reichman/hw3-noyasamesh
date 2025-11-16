@@ -59,7 +59,7 @@ public class LoanCalc {
 		        return g; 
 			}
 		    else 
-		      g = g + 0.0001; 
+		      g = g + 0.001; 
         
 	    }
 		return g;
