@@ -2,7 +2,7 @@
 public class LoanCalc {
 	
 	static double epsilon = 0.001;  // Approximation accuracy
-	static int iterationCounter;    // Number of iterations 
+	static int iterationCounter;   // Number of iterations 
 	
 	// Gets the loan data and computes the periodical payment.
     // Expects to get three command-line arguments: loan amount (double),
@@ -28,8 +28,14 @@ public class LoanCalc {
 	// Computes the ending balance of a loan, given the loan amount, the periodical
 	// interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	private static double endBalance(double loan, double rate, int n, double payment) {	
-		// Replace the following statement with your code
-		return 0;
+	double balance = loan;
+    
+    for (int i = 0; i < n; i++) {
+        balance = balance - payment;
+		balance = balance * (1+ ( rate / 100));
+    }
+
+    return balance;
 	}
 	
 	// Uses sequential search to compute an approximation of the periodical payment
@@ -38,9 +44,19 @@ public class LoanCalc {
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {
-		// Replace the following statement with your code
-		return 0;
+		 
+    double g = loan / (double) (n);  
+    double balance = endBalance(loan, rate, n, g);
+	iterationCounter = 0;
+
+    while (balance > 0) {
+        g = g + epsilon;
+        balance = endBalance(loan, rate, n, g);
+		iterationCounter++;
     }
+
+    return g;  
+}
     
     // Uses bisection search to compute an approximation of the periodical payment 
 	// that will bring the ending balance of a loan close to 0.
@@ -48,7 +64,31 @@ public class LoanCalc {
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
-        // Replace the following statement with your code
-		return 0;
+        double L = loan / n; 
+        double H = loan; 
+        rate = rate / 100 + 1;
+        double g = (L + H) / 2;
+		iterationCounter = 0;
+
+        while (Math.abs(H - L) > epsilon) {
+		  iterationCounter++;
+	      double w = loan;
+	      for (int i=0; i<n; i++) {
+	        w = (w - g) * rate;
+	      } 
+          if (Math.abs(w) <= epsilon) {
+            break;
+        }
+        else if (w > 0) {    
+            L = g;
+        }
+        else {                
+            H = g;
+        }
+
+        g = (L + H) / 2;      
+    }
+        
+        return g;
     }
 }
