@@ -50,7 +50,7 @@ public class LoanCalc {
 	iterationCounter = 0;
 
     while (balance > 0) {
-        g = g + 0.01;
+        g = g + epsilon;
         balance = endBalance(loan, rate, n, g);
 		iterationCounter++;
     }
