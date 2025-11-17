@@ -64,11 +64,11 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		str = str.toLowerCase();
-		String newStr="";
+		String newStr = "";
 		for (int i=0; i< str.length();i++) {
 			char c = str.charAt(i);
-			if ((c>96) && (c<123)) {
-				newStr += c;
+			if ((c >= 'a') && (c <= 'z')) {
+				newStr = newStr + String.valueOf(c);
 			}
 		}
 		return newStr;
